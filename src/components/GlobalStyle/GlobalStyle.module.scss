@@ -1,0 +1,80 @@
+@import 'normalize.css';
+
+$font-family: 'Josefin Sans', sans-serif;
+$dark-background-color: #161722;
+$dark-text-color: #484b6a;
+$text-color: #9394a5;
+
+@mixin animation_change_theme {
+    transition-delay: 0s;
+    transition-duration: 0.8s;
+    transition-property: all;
+    transition-timing-function: ease-in-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $font-family;
+    background-color: transparent;
+}
+
+.html {
+    font-size: 62.5%;
+}
+
+.body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    color: $text-color;
+}
+
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+button {
+    border: 1px solid transparent;
+}
+
+// fonts
+@font-face {
+    font-family: JosefinSans;
+    src: url('/assets/fonts/JosefinSans-Bold.ttf');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: JosefinSans;
+    src: url('/assets/fonts/JosefinSans-SemiBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: JosefinSans;
+    src: url('/assets/fonts/JosefinSans-Regular.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: JosefinSans;
+    src: url('/assets/fonts/JosefinSans-ExtraLight.ttf');
+    font-weight: 200;
+}
+
+// theme
+
+.dark {
+    background-color: #161722;
+    color: $dark-text-color;
+    @include animation_change_theme;
+}
+
+.light {
+    @include animation_change_theme;
+}

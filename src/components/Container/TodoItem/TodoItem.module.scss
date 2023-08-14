@@ -1,0 +1,75 @@
+$radius: 6.8px;
+$todo-item-height: 74px;
+$btn-width: 34px;
+
+// color
+$white-color: #fff;
+$text-color: #9394a5;
+
+$font-family: 'Josefin Sans', sans-serif;
+
+// placeholders
+@import '../btn.module';
+
+.todo-block {
+    color: $text-color;
+    padding: 0 34px;
+    width: 100%;
+    height: $todo-item-height;
+    background-color: $white-color;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    position: relative;
+
+    .todo-item {
+        width: calc(100% - $btn-width * 2 - 6px - 10px);
+        overflow: hidden;
+    }
+
+    .todo-item.change {
+        height: 100%;
+        color: $text-color;
+        font-family: $font-family;
+        font-size: 1rem;
+    }
+
+    &:hover {
+        height: $todo-item-height + 4px;
+        width: calc(100% + 6px);
+        border-left: 3px solid rgba(100, 179, 244, 0.7);
+        right: 3px;
+        box-shadow: 0 0 5px inset rgba(38 160 218 / 50%);
+    }
+
+    .-btn {
+        @extend %-btn;
+        position: absolute;
+        right: 34px;
+    }
+
+    .-btn.dark {
+        @extend %-dark-btn;
+    }
+
+    .update-btn {
+        right: 34px + $btn-width + 6px;
+    }
+}
+
+.todo-block.dark {
+    background-color: rgb(37, 39, 60);
+    color: rgb(202, 205, 232);
+    &:hover {
+        border-left: 3px solid rgb(38, 160, 218);
+        box-shadow: 0 0 5px inset rgba(38 160 218 / 50%);
+    }
+}
+
+.todo-block + .todo-block {
+    border-top: 1px solid rgba(22, 24, 35, 0.12);
+}
+
+.todo-block.dark + .todo-block.dark {
+    border-top-color: rgba(202, 205, 232, 0.12);
+}
